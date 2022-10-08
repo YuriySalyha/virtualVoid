@@ -1,0 +1,8 @@
+﻿  Admin.cpp
+  Moderator.cpp
+  RegularUser.cpp
+  Shop.cpp
+C:\Users\Yura\source\repos\virtualVoid\Shop.cpp(33,22): warning C4018: '<': signed/unsigned mismatch
+  virtualVoid.cpp
+  Generating Code...
+  virtualVoid.vcxproj -> C:\Users\Yura\source\repos\virtualVoid\Debug\virtualVoid.exe
