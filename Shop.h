@@ -1,3 +1,5 @@
+#ifndef Shop_h
+#define Shop_h
 #include <vector>
 #include "User.h"
 class Shop
@@ -12,4 +14,4 @@ public:
 	void registration();
 	void changePassword(int index);
 };
-
+#endif

@@ -21,7 +21,8 @@ RegularUser* RegularUser::registration() {
 
 
 RegularUser* RegularUser::passwordChange() {
-
+	RegularUser* a = {};
+	return a;
 }
 
 bool RegularUser::login() {

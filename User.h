@@ -7,5 +7,4 @@ public:
 	virtual void changePassword() {}
 	virtual ~User() {}
 };
-
 #endif // !User_h

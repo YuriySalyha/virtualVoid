@@ -1,3 +1,5 @@
+#ifndef Moderator_h
+#define Moderator_h
 #include "User.h"
 
 class Moderator : public User{
@@ -8,3 +10,4 @@ public:
 	void changePassword();
 	~Moderator();
 };
+#endif

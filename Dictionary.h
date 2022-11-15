@@ -1,12 +1,24 @@
 #ifndef Dictionary_h
 #define Dictionary_h
 #include <string>
+#include<iomanip>
+#include<stdexcept>
+#include <iostream>
+#include <vector>
+#include "TryAndCatch.h"
 
 template<class T, class U>
 class keyValuePair {
 public:
 	T key;
 	U value;
+	keyValuePair() {
+
+	}
+	keyValuePair(T key, U value) {
+		this->key = key;
+		this->value = value;
+	}
 	keyValuePair <T, U>* next;
 };
 
@@ -19,7 +31,11 @@ public:
 	{
 		first = NULL;
 	}
+
 	void add(T key, U value) {
+		if (checkKey(key)) {
+			throw IsIndexOkey();
+		}
 		if (!this->first)
 		{
 			this->first = new keyValuePair<T, U>;
@@ -49,7 +65,6 @@ public:
 			}
 		}
 	}
-	// 3223 + 332
 	Dictionary operator +( keyValuePair<T, U> var) {
 		add(var);
 		return this;
@@ -58,8 +73,8 @@ public:
 		this->last->next = list.first;
 	}
 	void add(keyValuePair<T, U> value) {
-		if (checkKey) {
-			return;
+		if (checkKey(value.key)) {
+			throw IsIndexOkey();
 		}
 		value->next = NULL;
 		if (!this->first)
@@ -83,12 +98,13 @@ public:
 			}
 		}
 	}
-	bool checkKey(U key) {
+	bool checkKey(T key) {
 		int len = lenght();
 		keyValuePair<T, U>* current = this->first;
 		for (int i = 0; i < len; i++)
 		{
 			if (key == current->key) {
+
 				return true;
 			}
 			current = current->next;
@@ -171,7 +187,20 @@ public:
 		}
 		return newList;
 	}
-	// operator+
+
+	//
+	//ostream& operator<<(ostream& output, keyValuePair<T, U> var) {
+	//	int varSize = lenght();
+	//	keyValuePair<T, U>* current = var.first;
+	//	std::string outputVar = "\nFull list: \n";
+	//	for (int i = 0; i < varSize; i++) {
+	//		outputVar += current->key + ": " + to_string(current->value) << "\n";
+	//		current = current->next;
+	//	}
+	//	return outputVar;
+	//}
+	//
+
 	U operator [](T index)
 	{
 		return this->get(index);

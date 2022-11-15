@@ -1,3 +1,5 @@
+#ifndef Admin_h
+#define Admin_h
 #include "User.h"
 
 class Admin : public User {
@@ -7,3 +9,5 @@ public:
 	bool login();
 	~Admin();
 };
+
+#endif

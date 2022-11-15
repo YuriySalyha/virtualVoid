@@ -10,8 +10,8 @@ public:
 	Element<T>* first;
 	Element<T>* last;
 	iCollection<T>() {
-		this->first = NULL;
-		this->last = NULL;
+		this->first = nullptr;
+		this->last = nullptr;
 	}
 	virtual T get(int index) = 0;
 	virtual void add(T data) = 0;

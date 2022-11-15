@@ -2,6 +2,7 @@
 #define List_h
 #include "Element.h"
 #include "iCollection.h"
+#include "TryAndCatch.h"
 template<class T>
 class List : public iCollection<T>
 {
@@ -10,8 +11,8 @@ class List : public iCollection<T>
 public:
     List<T>()
     {
-        this->first = NULL;
-        this->last = NULL;
+        this->first = nullptr;
+        this->last = nullptr;
     }
     List<T> take(int count, int index = 0) {
         List<T> newList;
@@ -47,7 +48,6 @@ public:
             current = this->first;
             int number;
             bool indicator = true;
-            //fix number for min and max
             for (int i = 0; i < leng; i++) {
                 if (indicator) {
                     if (increase && current->value > level) {
@@ -85,8 +85,12 @@ public:
         return newList;
 
     }
+    
     void remove(int index) 
     {
+        if (index > len()) {
+            throw IsIndexOkey();
+        }
         nextToCurrent = this->first;
         current = this->first;
         if (index == 0)
@@ -112,6 +116,9 @@ public:
     int len()  {
         current = this->first;
         int output = 0;
+        if (this->first == nullptr) {
+            return 0;
+        }
         while (!(current->next == this->last->next && current->value == this->last->value)){
             output++;
             current = current->next;
@@ -135,7 +142,7 @@ public:
         {
             this->first = new Element<T>;
             this->first->value = data;
-            this->first->next = NULL;
+            this->first->next = nullptr;
             this->last = this->first;
         }
         else
@@ -144,14 +151,14 @@ public:
             {
                 this->last = new Element<T>;
                 this->last->value = data;
-                this->last->next = NULL;
+                this->last->next = nullptr;
                 this->first->next = this->last;
             }
             else
             {
                 Element<T>* item = new Element<T>;
                 item->value = data;
-                item->next = NULL;
+                item->next = nullptr;
                 this->last->next = item;
                 this->last = item;
             }

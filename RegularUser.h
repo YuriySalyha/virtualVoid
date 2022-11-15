@@ -1,3 +1,5 @@
+#ifndef RegularUser_h
+#define RegularUser_h
 #include "User.h"
 
 class RegularUser : public User
@@ -15,3 +17,4 @@ public:
 	~RegularUser();
 	RegularUser* passwordChange();
 };
+#endif

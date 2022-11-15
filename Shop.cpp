@@ -16,7 +16,7 @@ void Shop::registration() {
 void Shop::changePassword(int index) {
 	std::cout << "Enter new password: ";
 	
-	users[index].
+	//users[index].
 }
 
 void Shop::login() {
